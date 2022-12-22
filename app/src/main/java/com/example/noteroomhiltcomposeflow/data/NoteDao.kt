@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.noteroomhiltcomposeflow.model.NoteEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -14,13 +15,16 @@ import kotlinx.coroutines.flow.Flow
 interface NoteDao {
 
     @Query("select * from note")
-    fun getAll(): Flow<List<NoteEntity>>
+    fun getAllFlow(): Flow<List<NoteEntity>>
 
     @Insert
     fun insert(note : NoteEntity)
 
     @Delete
     fun delete(note : NoteEntity)
+
+    @Update
+    fun update(note : NoteEntity)
 
 
 }
